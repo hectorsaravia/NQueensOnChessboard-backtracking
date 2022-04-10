@@ -1,7 +1,7 @@
 # NQueensOnChessboard-backtracking
 
 
-## n-reinar-ncuadrado.py:
+## n-reinas-ncuadrado.py:
 Este acercamiento considera como variables cada una de las reinas, las cuales se encuentran almacenadas en un arreglo de tamaño N, donde cada una tiene su posición en el tablero, siendo estas desde 1 hasta N^2. Dado que se verifica cada una de las posiciones en cada iteración, la complejidad de este algoritmo es muy elevada (N^2?), por lo que no es el acercamiento más óptimo. 
 
 ## n-reinas-columnas.py:
