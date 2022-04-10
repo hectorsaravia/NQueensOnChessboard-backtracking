@@ -1,23 +1,14 @@
 import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 import time
-N = 22
-
-chessB = np.zeros((N,N)).astype(int)
-
-sol = [0] * N
-#chessB[1][2] = 1
-#chessB[0][0] = 1
-""" def printBoard(board):
-    for i in board:
-        for j in i:
-            print(j, end = " ")
-        print() """
 
 
 """Generar ramas superiores e inferiores para
    verificar si hay alguna reina en las diagonales
    izquierdas."""
 def diagCheck(dir, board,i, j):
+    N = len(board[0])
     #print(dir + "i:" + str(i) + " j:" + str(j))
     if i < 0 or j < 0 or i > (N-1):
         return False
@@ -57,7 +48,7 @@ def checkPos(board, i, j):
 
 
 def backTrack(board, j):
-
+    N = len(board[0])
     if j > (N-1):
         return True
 
@@ -74,13 +65,37 @@ def backTrack(board, j):
 
     return False
 
-if __name__ == "__main__":
-    #print(chessB)
-    #checkPos(1,3,chessB)
-    start_time = time.time()
-    #print(diagCheckStart(chessB, 3, 3))
-    #print(checkPos(chessB, 0, 0))
+def N_Queens(N):
+    chessB = np.zeros((N,N)).astype(int)
     backTrack(chessB, 0)
-    print(chessB)
-    print(chessB.sum())
-    print(time.time() - start_time)
+    return chessB
+
+
+if __name__ == "__main__":
+    
+
+    #Ejecución única
+    N = 4
+    print(N_Queens(N))
+
+
+
+    #Ejecución múltiple
+    print("Ejecución múltiple: \n")
+    timeData = []
+    N_arr = []
+    #Itera desde N = 4 hasta N = 15
+    for x in range(4, 15+1):
+        
+        
+        #Aquí empieza la medición de tiempo
+        start_time = time.time()
+        N_Queens(x)
+        timeData.append(time.time() - start_time)
+        N_arr.append(x)
+        print("Q para N = " + str(x) + ": ")
+    
+    print(timeData)
+    print(N_arr)
+    plt.plot(N_arr, timeData)
+    plt.show() 
