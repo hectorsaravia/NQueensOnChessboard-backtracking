@@ -93,35 +93,42 @@ def N_Queens(N):
 
 if __name__ == "__main__":
 
-    
+    print("Representación I \n")
+    print("------------------------")
     #Para una sola ejecución:
-    N = 4
+    """ N = 4
     Q = N_Queens(N)
     print("Ejecución única: \n")
     print("Solución: " + str(Q))
     print("Matriz: ")
     print(plotMat(Q))
-    print("\n")
+    print("\n") """
 
 
     #Para ejecuciones múltiples y generar graf N v/s tiempo
-    print("Ejecución múltiple: \n")
+    #print("Ejecución múltiple: \n")
     timeData = []
     N_arr = []
     #Itera desde N = 4 hasta N = 8
     for x in range(4, 8+1):
         
+        print("Número de Reinas: " + str(x))
         
         #Aquí empieza la medición de tiempo
         start_time = time.time()
         Q = N_Queens(x)
         timeData.append(time.time() - start_time)
         N_arr.append(x)
-        print("Q para N = " + str(x) + ": " + str(Q))
+        #print("Q para N = " + str(x) + ": " + str(Q))
+        print("Solución: " + str(Q))
+        print("Tiempo: " + str(timeData[len(timeData)-1]) + " segundos")
+        print("------------------------")
     
-    print(timeData)
-    print(N_arr)
+    #print(timeData)
+    #print(N_arr)
     plt.plot(N_arr, timeData)
+    plt.xlabel("N")
+    plt.ylabel("Tiempo [seg]")
     plt.show() 
 
     
