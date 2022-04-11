@@ -72,28 +72,33 @@ def N_Queens(N):
 
 
 if __name__ == "__main__":
-    
+    print("Representación II \n")
+    print("------------------------")
 
     #Ejecución única
-    N = 4
-    print(N_Queens(N))
+    """ N = 4
+    print(N_Queens(N)) """
 
 
 
     #Ejecución múltiple
-    print("Ejecución múltiple: \n")
+    #print("Ejecución múltiple: \n")
     timeData = []
     N_arr = []
     #Itera desde N = 4 hasta N = 15
     for x in range(4, 15+1):
         
-        
+        print("Número de Reinas: " + str(x))
         #Aquí empieza la medición de tiempo
         start_time = time.time()
-        N_Queens(x)
+        cB = N_Queens(x)
         timeData.append(time.time() - start_time)
         N_arr.append(x)
-        print("Q para N = " + str(x) + ": ")
+        #print("Q para N = " + str(x) + ": ")
+        print("Solución: ")
+        print(cB)
+        print("Tiempo: " + str(timeData[len(timeData)-1]) + " segundos")
+        print("------------------------")
     
     print(timeData)
     print(N_arr)
